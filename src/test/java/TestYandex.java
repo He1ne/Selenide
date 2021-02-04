@@ -2,7 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenideOOP.base.BaseTest;
 
-public class TestNew extends BaseTest {
+public class TestYandex extends BaseTest {
     @Test
     public void test() throws InterruptedException {
        yandexMainPage.searchMethod("Яндекс Маркет");
