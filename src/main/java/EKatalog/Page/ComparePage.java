@@ -5,9 +5,19 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ComparePage {
-    private SelenideElement findedPhoneName= $x("//*[@class=\"comp-model-name\"]");
 
-    public String finalName(){
-        return findedPhoneName.getText();
+    SelenideElement del = $x("//*[@title=\"Удалить товар из сравнения\"]");
+
+    private SelenideElement findedPhoneName(String pName){
+     return $x("//*[@class=\"comp-model-name\"]//*[contains(text(),'"+pName+"')]");
+    }
+
+    public String finalName(String pName){
+        return findedPhoneName(pName).getText();
+    }
+    public void delPhone() throws InterruptedException {
+        Thread.sleep(2000);
+        del.click();
     }
 }
+

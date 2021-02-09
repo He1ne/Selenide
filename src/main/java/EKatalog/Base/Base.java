@@ -30,7 +30,6 @@ public class Base {
 
     }
     @AfterMethod
-
     public void exit() {
         loginPage.off();
         }

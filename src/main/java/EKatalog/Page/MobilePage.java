@@ -18,7 +18,7 @@ public class MobilePage {
     }
 
     private SelenideElement getNameOfPhone(String getName) {
-        return $x("//*[@class=\"model-short-info\"]//*[text()= \""+getName+"\"]");
+        return $x("//*[@class=\"model-short-info\"]//*[contains(text(),\""+getName+"\")]");
     }
     public String saveNamePhone(String getName){
         return getNameOfPhone(getName).getText();
@@ -32,11 +32,11 @@ public class MobilePage {
     */
     public void filter(String typePhone) throws InterruptedException {
         Thread.sleep(500);
-        typeOfPhones.findBy(Condition.exactText(typePhone)).scrollIntoView(false).click();
+        typeOfPhones.findBy(Condition.exactText(typePhone)).scrollIntoView(true).click();
     }
 
     public void pushFind() {
-        findButton.click();
+        findButton.scrollIntoView(true).click();
     }
 
     public void clickCompare(String namePhone) {
